@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body ng-app="sampleApp">
+        <div class="col-md-12">
+            <div class="container">
+                <h1>I'm sample page</h1>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">Sign Up</button>
+                  <button type="button" class="btn btn-default">Log in</button>
+                  <button type="button" class="btn btn-default">Just a button</button>
+                </div>
+                <ng-view></ng-view>
+            </div>
+        </div>
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <!-- endbower -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/authController.js"></script>
+    </body>
+</html>
