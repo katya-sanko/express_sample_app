@@ -10,6 +10,9 @@ var expressSession = require('express-session');
 var fs = require('fs');
 var path = require('path');
 
+var routes = require('./routes');
+var api = require('./routes/api');
+
 //mongo
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
@@ -109,38 +112,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
-// application routing (logic)
-app.get('/login', function(req, res) {
-    fs.readFile(path.join(__dirname, 'index.html'), { encoding: 'utf-8' }, function(err, data) {
-        if (!err) {
-            res.send(data);
-        }
-    });
-});
+app.get('/', function(req, res) { res.redirect(302, '/views/index.html') });
 
-app.get('/hello', function(req, res) {
-    if (req.isAuthenticated()) {
-        res.send('Hello, friend!');
-    } else {
-        res.send('Get away, stranger!');
-    }
-});
-
-
-//maby to do it with angular???
-app.get('/signup', function(req, res) {
-    fs.readFile(path.join(__dirname, 'index.html'), { encoding: 'utf-8' }, function(err, data) {
-        if (!err) {
-            res.send(data);
-        }
-    });
-});
-
-app.post('/login', passport.authenticate('local', { successRedirect: '/hello', failureRedirect: '/login' }));
-app.get('/logout', function(req, res) {
-    req.logout();
-    redirect('/login');
-});
+app.post('/api/login', api.login);
 
 // server initialization
 var server = app.listen(3000, function() {

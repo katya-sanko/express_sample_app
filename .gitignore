@@ -1,6 +1,7 @@
 .vagrant/
 node_modules/
 public/bower_components
+data
 
 # tmp files
 *.sw[po]
